@@ -13,7 +13,7 @@ class DonationCreate(BaseModel):
 class DonationDB(DonationCreate):
     """Описывает объект для зарегестрированного пользователя."""
     id: int
-    create_date: Optional[datetime]
+    create_date: datetime
 
     class Config:
         orm_mode = True
@@ -25,3 +25,6 @@ class DonationDBSuperUser(DonationDB):
     invested_amount: int
     fully_invested: bool
     close_date: Optional[datetime]
+
+    class Config:
+        orm_mode = True
