@@ -65,7 +65,10 @@ async def update_charity_project(
     charity_project_in: CharityProjectUpdate,
     session: AsyncSession = Depends(get_async_session),
 ):
-    """Только для суперюзеров."""
+    """
+    Только для суперюзеров.\n
+    Закрытый проект нельзя редактировать;
+     нельзя установить требуемую сумму меньше уже вложенной."""
 
     charity_project_db = await check_charity_project_before_edit(
         project_id, charity_project_in, session

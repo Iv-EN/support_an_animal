@@ -6,7 +6,7 @@ class UserRead(BaseUser[int]):
 
 
 class UserCreate(BaseUserCreate):
-    """Сщздание пользователя."""
+    """Создание пользователя."""
 
 
 class UserUpdate(BaseUserUpdate):
