@@ -24,7 +24,7 @@ async def get_all_donations(
     """
     Только для суперюзеров.\n
     Возвращает список всех пожертвований."""
-    return await donation_crud.get_multi(session=session)
+    return await donation_crud.get_multi(session)
 
 
 @router.get(
@@ -38,8 +38,8 @@ async def get_user_donations(
 ):
     """Вернуть список пожертвований пользователя, выполняющего запрос."""
     return await donation_crud.get_user_donations(
-        session=session,
-        user=user
+        user,
+        session,
     )
 
 
@@ -55,8 +55,8 @@ async def create_donation(
 ):
     """Сделать пожертвование."""
     new_donation = await donation_crud.create(
-        obj_in=donation_in, session=session, user=user
+        donation_in, session, user
     )
-    await invest(session=session)
+    await invest(session)
     await session.refresh(new_donation)
     return new_donation

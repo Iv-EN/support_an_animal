@@ -12,8 +12,8 @@ async def check_name_duplicate(
 ) -> None:
     """Проверяет название проекта на уникальность."""
     charity_project = await charity_project_crud.get_project_id_by_name(
-        project_name=charity_project_name,
-        session=session
+        charity_project_name,
+        session
     )
     if charity_project is not None:
         raise HTTPException(
@@ -28,8 +28,8 @@ async def check_charity_project_exists(
 ) -> CharityProject:
     """Проверяет наличие проекта."""
     charity_project = await charity_project_crud.get(
-        obj_id=project_id,
-        session=session
+        project_id,
+        session
     )
     if charity_project is None:
         raise HTTPException(
@@ -64,8 +64,8 @@ async def check_charity_project_before_edit(
         )
     new_name = charity_project_in.name
     await check_name_duplicate(
-        charity_project_name=new_name,
-        session=session
+        new_name,
+        session
     )
     return charity_project
 
@@ -76,8 +76,8 @@ async def check_charity_project_before_delete(
 ) -> CharityProject:
     """Проверяет проект для удаления."""
     charity_project = await check_charity_project_exists(
-        project_id=project_id,
-        session=session
+        project_id,
+        session
     )
 
     if charity_project.invested_amount > 0:

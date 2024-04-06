@@ -30,14 +30,14 @@ async def create_charity_project(
     Создаёт благотворительный проект.
     """
     await check_name_duplicate(
-        charity_project_name=charity_project.name,
-        session=session
+        charity_project.name,
+        session
     )
     new_charity_project = await charity_project_crud.create(
-        obj_in=charity_project,
-        session=session
+        charity_project,
+        session
     )
-    await invest(session=session)
+    await invest(session)
     await session.refresh(new_charity_project)
 
     return new_charity_project
@@ -52,7 +52,7 @@ async def get_all_charity_projects(
     session: AsyncSession = Depends(get_async_session),
 ):
     """Возвращает список всех проектов."""
-    return await charity_project_crud.get_multi(session=session)
+    return await charity_project_crud.get_multi(session)
 
 
 @router.patch(
@@ -74,9 +74,9 @@ async def update_charity_project(
         project_id, charity_project_in, session
     )
     charity_project = await charity_project_crud.update(
-        db_obj=charity_project_db,
-        obj_in=charity_project_in,
-        session=session
+        charity_project_db,
+        charity_project_in,
+        session
     )
     return charity_project
 
@@ -96,11 +96,11 @@ async def delete_charity_project(
     его можно только закрыть.
     """
     charity_project = await check_charity_project_before_delete(
-        project_id=project_id,
-        session=session
+        project_id,
+        session
     )
     charity_project = await charity_project_crud.delete(
-        db_obj=charity_project,
-        session=session
+        charity_project,
+        session
     )
     return charity_project
