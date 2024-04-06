@@ -96,7 +96,7 @@ ___
 ___
 
 <h3 align="center">
-    <p><img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30" height="30" style="margin-right: 10px;">Автор Евгений Иванов. </p>
+    <p><img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30" height="30" style="margin-right: 10px;">Автор: Евгений Иванов. </p>
 </h3>
 <p align="center">
 
