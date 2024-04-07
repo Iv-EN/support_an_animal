@@ -9,7 +9,7 @@ class CRUDChatityProject(CRUDBase):
     async def get_project_id_by_name(
         self,
         project_name: str,
-        session: AsyncSession,
+        session: AsyncSession
     ):
         """Получает проект по его названию."""
         db_project_id = await session.execute(

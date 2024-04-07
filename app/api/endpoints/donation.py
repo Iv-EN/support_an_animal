@@ -35,16 +35,16 @@ async def get_all_donations(
     "/my",
     response_model=list[DonationDB],
     response_model_exclude_none=True,
-    summary="Getting a list of current user donations",
+    summary="Getting a list of current user donations"
 )
 async def get_user_donations(
     session: AsyncSession = Depends(get_async_session),
-    user: User = Depends(current_user),
+    user: User = Depends(current_user)
 ):
     """Вернуть список пожертвований пользователя, выполняющего запрос."""
     return await donation_crud.get_user_donations(
         user,
-        session,
+        session
     )
 
 
@@ -52,12 +52,12 @@ async def get_user_donations(
     "/",
     response_model=DonationDB,
     response_model_exclude_none=True,
-    summary="Creating a new donation by user",
+    summary="Creating a new donation by user"
 )
 async def create_donation(
     donation_in: DonationCreate,
     session: AsyncSession = Depends(get_async_session),
-    user: User = Depends(current_user),
+    user: User = Depends(current_user)
 ):
     """Сделать пожертвование."""
     new_donation = await donation_crud.create(donation_in, session, user)

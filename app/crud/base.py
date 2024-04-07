@@ -16,7 +16,7 @@ class CRUDBase:
     async def get(
         self,
         obj_id: int,
-        session: AsyncSession,
+        session: AsyncSession
     ):
         """Получает объект по id."""
         db_obj = await session.execute(
@@ -56,7 +56,7 @@ class CRUDBase:
         self,
         db_obj,
         obj_in,
-        session: AsyncSession,
+        session: AsyncSession
     ):
         """Обновляет объект."""
         obj_data = jsonable_encoder(db_obj)
@@ -75,7 +75,7 @@ class CRUDBase:
     async def delete(
         self,
         db_obj,
-        session: AsyncSession,
+        session: AsyncSession
     ):
         """Удаляет объект."""
         await session.delete(db_obj)

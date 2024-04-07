@@ -10,7 +10,7 @@ from fastapi_users import (
 from fastapi_users.authentication import (
     AuthenticationBackend,
     BearerTransport,
-    JWTStrategy,
+    JWTStrategy
 )
 from fastapi_users_db_sqlalchemy import SQLAlchemyUserDatabase
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -39,7 +39,7 @@ def get_jwt_strategy() -> JWTStrategy:
 auth_backend = AuthenticationBackend(
     name="jwt",
     transport=bearer_transport,
-    get_strategy=get_jwt_strategy,
+    get_strategy=get_jwt_strategy
 )
 
 

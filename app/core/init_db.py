@@ -47,5 +47,5 @@ async def create_first_superuser() -> None:
         await create_user(
             email=settings.first_superuser_email,
             password=settings.first_superuser_password,
-            is_superuser=True,
+            is_superuser=True
         )
