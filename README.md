@@ -68,10 +68,10 @@ touch .env
 ```
 5. Опишите в нём переменные окружения:
 ```bash
-DATABASE_URL=<настройки подключения к БД, например: sqlite+aiosqlite:///./development.db>
-SECRET=<секретный ключ>
-FIRST_SUPERUSER_EMAIL=<email первого суперпользователя>
-FIRST_SUPERUSER_PASSWORD=<пароль первого суперпользователя>
+QRKot_DATABASE_URL=<настройки подключения к БД, например: sqlite+aiosqlite:///./development.db>
+QRKOT_SECRET=<секретный ключ>
+QRKOT_FIRST_SUPERUSER_EMAIL=<email первого суперпользователя>
+QRKOT_FIRST_SUPERUSER_password=<пароль первого суперпользователя>
 ```
 
 ## Запуск проекта
