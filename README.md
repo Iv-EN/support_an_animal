@@ -1,3 +1,4 @@
+<-- _*_ coding: utf-8 _*_ -->
 <div align="center">
     <h1>QRKot 😺️</h1> 
     <p>
