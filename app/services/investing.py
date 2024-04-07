@@ -27,10 +27,10 @@ async def invest(session: AsyncSession):
         return
     for donation in investments_open:
         for project in unclosed_projects:
-            required_amount = (
-                project.full_amount - project.invested_amount
+            required_amount = project.full_amount - project.invested_amount
+            amount_available_donation = (
+                donation.full_amount - donation.invested_amount
             )
-            amount_available_donation = donation.full_amount - donation.invested_amount
             needed_money = required_amount - amount_available_donation
             if needed_money == 0:
                 close_fully_invested_object(donation)

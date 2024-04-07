@@ -6,12 +6,14 @@ from pydantic import BaseModel, PositiveInt
 
 class DonationCreate(BaseModel):
     """Создать новое пожертвование."""
+
     full_amount: PositiveInt
     comment: Optional[str]
 
 
 class DonationDB(DonationCreate):
     """Описывает объект для зарегестрированного пользователя."""
+
     id: int
     create_date: datetime
 
@@ -21,6 +23,7 @@ class DonationDB(DonationCreate):
 
 class DonationDBSuperUser(DonationDB):
     """Описывает объект для СуперЮзера."""
+
     user_id: Optional[int]
     invested_amount: int
     fully_invested: bool
