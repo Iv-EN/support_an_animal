@@ -17,9 +17,9 @@ async def create_user(
     email: EmailStr, password: str, is_superuser: bool = False
 ) -> None:
     """Корутина, создающая юзера с переданным email и паролем.
-    
+
     Возможно создание суперюзера при передаче аргумента is_superuser=True.
-    
+
     """
     try:
         async with get_async_session_context() as session:
@@ -38,9 +38,9 @@ async def create_user(
 
 async def create_first_superuser() -> None:
     """Корутина, проверяющая, указаны ли в настройках данные для суперюзера.
-    
+
     Если да, то вызывается корутина create_user для создания суперпользователя.
-    
+
     """
     if (
         settings.first_superuser_email is not None
