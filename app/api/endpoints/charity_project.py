@@ -19,7 +19,8 @@ router = APIRouter()
     '/',
     response_model=CharityProjectDB,
     response_model_exclude_none=True,
-    dependencies=[Depends(current_superuser)]
+    dependencies=[Depends(current_superuser)],
+    summary='Creating a new charity project (super users only)',
 )
 async def create_charity_project(
     charity_project: CharityProjectCreate,
@@ -46,7 +47,8 @@ async def create_charity_project(
 @router.get(
     '/',
     response_model=list[CharityProjectDB],
-    response_model_exclude_none=True
+    response_model_exclude_none=True,
+    summary='Getting a list of all charitable projects',
 )
 async def get_all_charity_projects(
     session: AsyncSession = Depends(get_async_session),
@@ -58,7 +60,8 @@ async def get_all_charity_projects(
 @router.patch(
     '/{project_id}',
     response_model=CharityProjectDB,
-    dependencies=[Depends(current_superuser)]
+    dependencies=[Depends(current_superuser)],
+    summary='Charity project data update (super users only)'
 )
 async def update_charity_project(
     project_id: int,
@@ -84,7 +87,8 @@ async def update_charity_project(
 @router.delete(
     '/{project_id}',
     response_model=CharityProjectDB,
-    dependencies=[Depends(current_superuser)]
+    dependencies=[Depends(current_superuser)],
+    summary='Deleting a charity project (super users only)'
 )
 async def delete_charity_project(
     project_id: int,

@@ -16,7 +16,8 @@ router = APIRouter()
     '/',
     response_model=list[DonationDBSuperUser],
     response_model_exclude_none=True,
-    dependencies=[Depends(current_superuser)]
+    dependencies=[Depends(current_superuser)],
+    summary='Getting a list of all donations (super users only)',
 )
 async def get_all_donations(
     session: AsyncSession = Depends(get_async_session),
@@ -30,7 +31,8 @@ async def get_all_donations(
 @router.get(
     '/my',
     response_model=list[DonationDB],
-    response_model_exclude_none=True
+    response_model_exclude_none=True,
+    summary='Getting a list of current user donations',
 )
 async def get_user_donations(
     session: AsyncSession = Depends(get_async_session),
@@ -46,7 +48,8 @@ async def get_user_donations(
 @router.post(
     '/',
     response_model=DonationDB,
-    response_model_exclude_none=True
+    response_model_exclude_none=True,
+    summary='Creating a new donation by user'
 )
 async def create_donation(
     donation_in: DonationCreate,
