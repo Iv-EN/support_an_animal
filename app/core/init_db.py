@@ -15,7 +15,7 @@ get_user_manager_context = contextlib.asynccontextmanager(get_user_manager)
 
 async def create_user(
         email: EmailStr, password: str, is_superuser: bool = False
-):
+) -> None:
     """
     Корутина, создающая юзера с переданным email и паролем.
     Возможно создание суперюзера при передаче аргумента is_superuser=True.
@@ -35,7 +35,7 @@ async def create_user(
         pass
 
 
-async def create_first_superuser():
+async def create_first_superuser() -> None:
     """
     Корутина, проверяющая, указаны ли в настройках данные для суперюзера.
     Если да, то вызывается корутина create_user для создания суперпользователя.
