@@ -7,6 +7,7 @@ from app.core.config import settings
 
 class PreBase:
     """Основа базового класса."""
+
     @declared_attr
     def __tablename__(cls):
         return cls.__name__.lower()

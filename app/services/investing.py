@@ -17,9 +17,7 @@ def close_fully_invested_object(obj: Union[CharityProject, Donation]) -> None:
 
 async def invest(session: AsyncSession):
     """Распределяет доступную сумму пожертвований по открытым проектам."""
-    investments_open = await donation_crud.get_not_closed_objects(
-        session=session
-    )
+    investments_open = await donation_crud.get_not_closed_objects(session=session)
     unclosed_projects = await charity_project_crud.get_not_closed_objects(
         session=session
     )
@@ -27,9 +25,7 @@ async def invest(session: AsyncSession):
         return
     for donation in investments_open:
         for project in unclosed_projects:
-            required_amount = (
-                project.full_amount - project.invested_amount
-            )
+            required_amount = project.full_amount - project.invested_amount
             amount_available_donation = donation.full_amount - donation.invested_amount
             needed_money = required_amount - amount_available_donation
             if needed_money == 0:

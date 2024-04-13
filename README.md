@@ -59,7 +59,7 @@ sourse venv/bin/activate
 ```
 3. Обновите pip и установите зависимости:
 ```bash
-python -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ```
 ```bash
 pip install -r requirements.txt

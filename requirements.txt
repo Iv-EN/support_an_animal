@@ -65,3 +65,4 @@ urllib3==1.26.9
 uvicorn[standard]==0.17.6
 watchgod==0.8.2
 websockets==10.3
+black
