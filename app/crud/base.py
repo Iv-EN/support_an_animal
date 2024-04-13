@@ -16,7 +16,7 @@ class CRUDBase:
     async def get(
         self,
         obj_id: int,
-        session: AsyncSession,
+        session: AsyncSession
     ):
         """Получает объект по id."""
         db_obj = await session.execute(
