@@ -21,19 +21,15 @@ async def create_user(
     Возможно создание суперюзера при передаче аргумента is_superuser=True.
 
     """
-    try:
-        async with get_async_session_context() as session:
-            async with get_user_db_context(session) as user_db:
-                async with get_user_manager_context(user_db) as user_manager:
+    async with get_async_session_context() as session:
+        async with get_user_db_context(session) as user_db:
+            async with get_user_manager_context(user_db) as user_manager:
+                with contextlib.suppress(UserAlreadyExists):
                     await user_manager.create(
                         UserCreate(
-                            email=email,
-                            password=password,
-                            is_superuser=is_superuser
+                            email=email, password=password, is_superuser=is_superuser
                         )
                     )
-    except UserAlreadyExists:
-        pass
 
 
 async def create_first_superuser() -> None:
