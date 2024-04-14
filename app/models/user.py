@@ -4,4 +4,4 @@ from app.core.db import Base
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
-    """Класс для представления пользователей в базе данных."""
+    """Представление пользователей в базе данных."""
