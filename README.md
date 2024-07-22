@@ -49,7 +49,7 @@
 
 1. Склонируйте репозиторий:
 ```bash
-git clone https://github.com/Iv-EN/cat_charity_fund.git
+git clone https://github.com/Iv-EN/support_an_animal.git
 ```
 2.  Создайте и активируйте виртуальное пространство:
 ```bash
